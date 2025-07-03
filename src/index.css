@@ -1,0 +1,398 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #3a7bd5, #00d2ff);
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+}
+
+.traffic-light-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 550px;
+}
+
+.traffic-light {
+  position: relative;
+  width: 140px;
+  height: 350px;
+  background: linear-gradient(
+    to right,
+    #333 0%,
+    #444 20%,
+    #555 50%,
+    #444 80%,
+    #333 100%
+  );
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.4),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.traffic-light::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  height: 50px;
+  background: linear-gradient(
+    to right,
+    #333 0%,
+    #444 20%,
+    #555 50%,
+    #444 80%,
+    #333 100%
+  );
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.traffic-light::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  width: 30px;
+  height: 80px;
+  background: linear-gradient(
+    to right,
+    #333 0%,
+    #444 20%,
+    #555 50%,
+    #444 80%,
+    #333 100%
+  );
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.light {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #222;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.7),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1), 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.light::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(2px);
+}
+
+.light.red {
+  background-color: #400;
+  box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.7),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1), 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.light.yellow {
+  background-color: #440;
+  box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.7),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1), 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.light.green {
+  background-color: #040;
+  box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.7),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1), 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.light.red.active {
+  background: radial-gradient(circle at 30% 30%, #ff5252, #ff0000, #d50000);
+  box-shadow: 0 0 20px #ff0000, 0 0 40px rgba(255, 0, 0, 0.5),
+    inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.light.yellow.active {
+  background: radial-gradient(circle at 30% 30%, #ffff8d, #ffeb3b, #fbc02d);
+  box-shadow: 0 0 20px #ffeb3b, 0 0 40px rgba(255, 235, 59, 0.5),
+    inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.light.green.active {
+  background: radial-gradient(circle at 30% 30%, #69f0ae, #00e676, #00c853);
+  box-shadow: 0 0 20px #00e676, 0 0 40px rgba(0, 230, 118, 0.5),
+    inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.road {
+  position: relative;
+  overflow: hidden;
+  bottom: -100px;
+  width: 80rem;
+  height: 150px;
+  background: #333;
+  border-top: 4px solid #ddd;
+  border-bottom: 4px solid #ddd;
+  z-index: 2; /* Changed from -1 to 0 */
+  transform: perspective(400px) rotateX(45deg); /* Modified perspective and angle */
+  transform-origin: top center; /* Added transform origin */
+}
+
+.road::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  transform: translateY(-50%);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .traffic-light-container {
+    min-height: 220px;
+  }
+  .traffic-light {
+    width: 90px;
+    height: 200px;
+    padding: 8px;
+  }
+  .light {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  .road {
+    width: 400px;
+    height: 60px;
+    transform: translateY(15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .traffic-light-container {
+    min-height: 120px;
+  }
+  .traffic-light {
+    width: 60px;
+    height: 120px;
+    padding: 4px;
+  }
+  .light {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .road {
+    width: 330px;
+    height: 200px;
+    transform: translateY(176px);
+  }
+}
+.time {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  background-color: #1a1a1a;
+}
+
+.span {
+  z-index: 3;
+  color: inherit;
+}
+.car {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 30px;
+  background: linear-gradient(#e74c3c, #c0392b);
+  border-radius: 5px;
+  z-index: 3;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.car::before,
+.car::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 15px;
+  height: 15px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.car::before {
+  left: 10px;
+}
+
+.car::after {
+  right: 10px;
+}
+
+@keyframes drive-right {
+  from {
+    left: -60px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes drive-left {
+  from {
+    right: -60px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+.car--1 {
+  animation: drive-right 5s linear infinite;
+}
+
+.car--2 {
+  animation: drive-left 7s linear infinite;
+  animation-delay: 2s;
+  background: linear-gradient(#3498db, #2980b9);
+}
+
+.car--3 {
+  animation: drive-left 10s ease-in-out infinite;
+  color: blue;
+}
+/* Responsive car sizes */
+@media (max-width: 768px) {
+  .car {
+    width: 40px;
+    height: 25px;
+  }
+
+  .car::before,
+  .car::after {
+    width: 12px;
+    height: 12px;
+    bottom: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .car {
+    width: 30px;
+    height: 20px;
+  }
+
+  .car::before,
+  .car::after {
+    width: 10px;
+    height: 10px;
+    bottom: -6px;
+  }
+}
+.lane {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: 0;
+}
+.lane-1 {
+  top: 10px;
+}
+.lane-2 {
+  bottom: 10px;
+}
